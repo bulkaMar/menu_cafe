@@ -1,0 +1,38 @@
+.header{
+	background-image: url(../img/background-header-hero.png);
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.nav-list__link a{
+	color: white;
+	font-weight: 500px;
+	font-size: 18px;
+	font-family: "Source Sans 3", sans-serif;
+	font-style: normal;
+}
+.header__nav-logo{
+	width: 129px;
+	height: 63px;
+}
+
+@media (min-width: 991px){
+	.header__nav{
+		padding: 30px 0px;
+	}
+	.header__nav-content{
+		display: flex;
+		justify-content: space-around;
+	}
+	.header__nav-menu-link{
+		display: flex;
+	}
+	.header__nav-list{
+		display: flex;
+	}
+	.nav-list__link{
+		margin-left: 20px;
+		margin-top: 15px;
+	}
+}

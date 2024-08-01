@@ -1,0 +1,200 @@
+.ice-cream-tastes {
+  background-color: #493b5f;
+  padding: 60px 24px;
+}
+
+.ice-cream-tastes__content-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ice-cream-tastes__content-title {
+  color: white;
+  font-size: 14px;
+  font-family: "Leckerli One", cursive;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.ice-cream-tastes__content-subtitle {
+  color: white;
+  font-size: 34px;
+  font-family: "Dangrek", cursive;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.ice-cream-tastes__content-secondary-text {
+  color: rgb(225, 221, 232);
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Source Sans 3", sans-serif;
+  margin-bottom: 50px;
+}
+
+.ice-cream-tastes__slide {
+  background-color: #32264b;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 50px 40px;
+  width: 100%;
+}
+
+.ice-cream-tastes__slide img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.ice-cream-tastes__slide-title {
+  color: white;
+  font-size: 22px;
+  font-family: "Dangrek", cursive;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.ice-cream-tastes__slide-description {
+  color: #eff8ffd4;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Source Sans 3", sans-serif;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.ice-cream-tastes__slide-price,
+.ice-cream-tastes__slide-price span {
+  font-size: 18px;
+  font-family: "Source Sans 3", sans-serif;
+}
+
+.ice-cream-tastes__slide-price {
+  color: rgb(255, 196, 82);
+  font-weight: 500;
+}
+
+.ice-cream-tastes__slide-price span {
+  color: #bab1c5;
+  font-weight: bold;
+}
+
+.ice-cream-tastes__slides {
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.ice-cream-tastes__slide {
+  flex: 0 0 100%;
+  background-color: #32264b;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 50px 40px;
+  margin-right: 20px;
+  box-sizing: border-box;
+}
+
+.ice-cream-tastes__slide:last-child {
+  margin-right: 0;
+}
+
+.ice-cream-tastes__content {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ice-cream-tastes__btn-prev,
+.ice-cream-tastes__btn-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1rem;
+  z-index: 10;
+  color: rgba(54, 53, 53, 0.854);
+  background-color: white;
+}
+.ice-cream-tastes__btn-prev {
+  left: -10px;
+}
+.ice-cream-tastes__btn-next {
+  right: -10px;
+}
+.ice-cream-tastes__slides.no-transition{
+	scroll-behavior: auto;
+}
+
+.ice-cream-tastes__content-button{
+	background-color: #ffc452;
+	border-width: 2px;
+    border-radius: 32px;
+    padding: 15px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.ice-cream-tastes__content-button span{
+	color: white;
+    font-weight: bold;
+    font-size: 16.5px;
+    font-family: "Source Sans 3", sans-serif;
+    font-style: normal;
+    text-align: center;
+}
+@media (min-width: 600px) {
+  .ice-cream-tastes__slide {
+    flex: 0 0 calc(50%-20px);
+  }
+  .ice-cream-tastes__btn-next {
+    right: 10px;
+  }
+}
+
+@media (min-width: 850px) {
+  .ice-cream-tastes__slide {
+    flex: 0 0 calc(35% - 20px);
+  }
+  .ice-cream-tastes__btn-next {
+    right: -10px;
+  }
+}
+
+@media (min-width: 1068px) {
+  .ice-cream-tastes__slide {
+    flex: 0 0 calc(25% - 20px); /* Adjust for margin */
+  }
+  .ice-cream-tastes__btn-next {
+    right: -15px;
+  }
+  .ice-cream-tastes__btn-prev {
+    left: -33px;
+  }
+  .ice-cream-tastes__btn-prev,
+  .ice-cream-tastes__btn-next {
+    font-size: 2rem;
+    background-color: transparent;
+    color: #f5f5f5;
+  }
+  .ice-cream-tastes {
+    padding: 70px 40px;
+  }
+}

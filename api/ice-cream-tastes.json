@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "image": "img/ice-cream-tastes/blue-paradise.png",
+    "title": "Blue paradise",
+    "description": "sour and fruity",
+    "price": "$5"
+  },
+  {
+    "id": "2",
+    "image": "img/ice-cream-tastes/mango-dreams.png",
+    "title": "Mango dreams",
+    "description": "classic tropic taste",
+    "price": "$5"
+  },
+  {
+    "id": "3",
+    "image": "img/ice-cream-tastes/choco-hazelnut.png",
+    "title": "Choco & hazelnut",
+    "description": "rich sweet taste",
+    "price": "$5"
+  },
+  {
+    "id": "4",
+    "image": "img/ice-cream-tastes/pistachio-heaven.png",
+    "title": "Pistachio heaven",
+    "description": "creamy nutty flavor",
+    "price": "$5"
+  },
+  {
+    "id": "5",
+    "image": "img/ice-cream-tastes/strawberry-gem.png",
+    "title": "Strawberry gem",
+    "description": "fruity and fresh",
+    "price": "$5"
+  }
+]

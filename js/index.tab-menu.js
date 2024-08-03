@@ -21,10 +21,9 @@ function loadMenuData(index) {
     .catch((error) => console.error("Error fetching data:", error));
 }
 
-// Display the menu items in the content area
 function displayMenu(data, index) {
   const content = allContent[index];
-  content.innerHTML = ""; // Clear the current content
+  content.innerHTML = "";
 
   data.forEach((item) => {
     const itemHTML = `
@@ -40,30 +39,24 @@ function displayMenu(data, index) {
   });
 }
 
-// Add event listeners to each tab
 tabs.forEach((tab, index) => {
   tab.addEventListener("click", (e) => {
-    // Activate the selected tab
     tabs.forEach((tab) => {
       tab.classList.remove("active");
     });
     tab.classList.add("active");
 
-    // Move the line under the active tab
     let line = document.querySelector(".line");
     line.style.width = e.target.offsetWidth + "px";
     line.style.left = e.target.offsetLeft + "px";
 
-    // Deactivate all content sections and activate the selected one
     allContent.forEach((content) => {
       content.classList.remove("active");
     });
     allContent[index].classList.add("active");
 
-    // Load the menu data from the corresponding JSON file
     loadMenuData(index);
   });
 });
 
-// Load the first menu by default
 loadMenuData(0);

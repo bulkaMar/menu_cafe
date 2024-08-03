@@ -1,31 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Dangrek&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dangrek&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dangrek&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dangrek&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-:root{
-
+:root {
+  --global-text: white;
+  --global-secondary-text: rgb(225, 221, 232);
+  --global-background: #493b5f;
+  --global-description: #daecf9aa;
+  --global-button: #ffc452;
+  --button-for-slide: #f5f5f5;
+  --slide-span: #bab1c5;
+  --view-menu-content-button: #32264b;
+  --view-menu-content-button-milk: #a55376;
+  --ice-cream-tastes__slide: #32264b;
+  --ice-cream-tastes__slide-price: rgb(255, 196, 82);
 }
 img {
-	display: block;
-	width: 100%;
-  }
-  iframe {
-	width: 100%;
-  }
-  a {
-	text-decoration: none;
-  }
-  ul {
-	list-style: none;
-  }
-  .container {
-	max-width: 1200px;
-	margin: auto;
-  }
-  .overflow-hidden {
-	overflow: hidden;
-  }
+  display: block;
+  width: 100%;
+}
+iframe {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+ul,li {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+.overflow-hidden {
+  overflow: hidden;
+}

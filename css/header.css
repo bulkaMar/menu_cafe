@@ -6,7 +6,7 @@
 	background-position: center;
 }
 .nav-list__link a{
-	color: white;
+	color: var(--global-text);
 	font-weight: 500px;
 	font-size: 18px;
 	font-family: "Source Sans 3", sans-serif;

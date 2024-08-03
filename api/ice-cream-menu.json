@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Lemon & Lime",
+        "price": 6,
+        "img": "img/ice-cream-menu/lemon-lime.png"
+    },
+    {
+        "name": "Blackberry",
+        "price": 7,
+        "img": "img/ice-cream-menu/blackberry.png"
+    },
+    {
+        "name": "Mango",
+        "price": 5,
+        "img": "img/ice-cream-menu/mango.png"
+    },
+    {
+        "name": "Lavender",
+        "price": 8,
+        "img": "img/ice-cream-menu/lavender.png"
+    },
+    {
+        "name": "Vanilla",
+        "price": 4,
+        "img": "img/ice-cream-menu/vanilla.png"
+    },
+    {
+        "name": "Chocolate",
+        "price": 5,
+        "img": "img/ice-cream-menu/chocolate.png"
+    },
+    {
+        "name": "Strawberry",
+        "price": 5,
+        "img": "img/ice-cream-menu/strawberry.png"
+    },
+    {
+        "name": "Pistachio",
+        "price": 5,
+        "img": "img/ice-cream-menu/pistachio.png"
+    }
+]

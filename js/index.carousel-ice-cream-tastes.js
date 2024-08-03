@@ -18,6 +18,7 @@ ice_creams.forEach((ice_cream) => {
 
 slidesContainer.innerHTML = tastesHtml;
 
+
 const carousel = document.querySelector(".ice-cream-tastes__slides");
 const prevButtons = document.querySelectorAll(".ice-cream-tastes__btn-prev");
 const nextButtons = document.querySelectorAll(".ice-cream-tastes__btn-next");

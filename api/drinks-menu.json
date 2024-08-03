@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Strawberry",
+        "price": 10,
+        "img": "img/shake-menu/strawberry.png"
+    },
+    {
+        "name": "Caramel",
+        "price": 8,
+        "img": "img/shake-menu/caramel.png"
+    },
+    {
+        "name": "Berry Shake",
+        "price": 12,
+        "img": "img/shake-menu/berry-shake.png"
+    },
+    {
+        "name": "Choco-Choco",
+        "price": 9,
+        "img": "img/shake-menu/choco-choco.png"
+    },
+    {
+        "name": "Mango Shake",
+        "price": 8,
+        "img": "img/shake-menu/mango-shake.png"
+    },
+    {
+        "name": "Orange Shake",
+        "price": 9,
+        "img": "img/shake-menu/orange-shake.png"
+    },
+    {
+        "name": "Banana Shake",
+        "price": 8,
+        "img": "img/shake-menu/banana-shake.png"
+    },
+    {
+        "name": "Ice Latte",
+        "price": 10,
+        "img": "img/shake-menu/ice-latte.png"
+    }
+]

@@ -1,5 +1,5 @@
 .view-menu{
-    background-color: #493b5f;
+    background-color: var(--global-background);
 }
 
 .view-menu-content{
@@ -38,7 +38,7 @@
 }
 
 .view-menu-content-title{
-    color: white;
+    color: var(--global-text);
     font-size: 30px;
     font-family: "Dangrek", cursive;
     font-weight: 400;
@@ -60,16 +60,16 @@
 }
 
 .view-menu-content-button{
-    background-color: #32264b;
+    background-color: var(--view-menu-content-button);
 }
 
 .view-menu-content-button-milk{
-    background-color: #a55376;
+    background-color: var(--view-menu-content-button-milk);
 }
 
 .view-menu-content-button span,
 .view-menu-content-button-milk span{
-    color: white;
+    color: var(--global-text);
     font-weight: bold;
     font-size: 16.5px;
     font-family: "Source Sans 3", sans-serif;

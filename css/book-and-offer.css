@@ -1,0 +1,124 @@
+.book-and-offer {
+  background: var(--global-background);
+  padding: 60px 24px;
+}
+.book-table__content {
+  background-image: url(../img/book-and-offer/book-table.png);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  padding: 40px;
+  margin-bottom: 20px;
+}
+.book-table__content-title {
+  color: var(--global-text);
+  font-size: 14px;
+  font-family: "Leckerli One", cursive;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.book-table__content-subtitle {
+  color: var(--global-text);
+  font-size: 34px;
+  font-family: "Dangrek", cursive;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 30px;
+  max-width: 300px;
+}
+.book-table__content-btn {
+  background-color: var(--global-button);
+  border-width: 2px;
+  border-radius: 32px;
+  padding: 15px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+.book-table__content-btn:hover {
+  background-color: var(--button-hover-yel);
+}
+.book-table__content-btn span {
+  color: var(--global-text);
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "Source Sans 3", sans-serif;
+  font-style: normal;
+  text-align: center;
+}
+.special-offer__content {
+  background-image: url(../img/book-and-offer/special-offer.png);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.special-offer__content-subtitle {
+  color: #32264b;
+  font-size: 22px;
+  font-family: "Dangrek", cursive;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.special-offer__content-btn {
+  background-color: var(--global-background);
+  border-width: 2px;
+  border-radius: 32px;
+  padding: 15px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+.special-offer__content-btn:hover {
+  background-color: var(--button-hover-pink);
+}
+.special-offer__content-btn span {
+  color: var(--global-text);
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "Source Sans 3", sans-serif;
+  font-style: normal;
+  text-align: center;
+}
+@media (min-width: 780px) {
+  .book-and-offer__content {
+    display: flex;
+    gap: 30px;
+  }
+  .book-table__content {
+    flex: 0 0 65%;
+    height: 450px;
+  }
+  .book-table__content-title {
+    margin-top: 50px;
+  }
+  .special-offer__content {
+    flex: 0 0 33%;
+    height: 450px;
+  }
+  .book-table__content-title {
+    font-size: 17px;
+  }
+  .book-table__content-subtitle {
+    font-size: 42px;
+    max-width: 500px;
+  }
+  .special-offer__content-subtitle {
+    font-size: 24px;
+  }
+}

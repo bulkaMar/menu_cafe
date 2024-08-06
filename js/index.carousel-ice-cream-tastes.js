@@ -1,8 +1,11 @@
 const response = await fetch("api/ice-cream-tastes.json");
 const ice_creams = await response.json();
-console.log(ice_creams); 
 
 const slidesContainer = document.getElementById("iceCreamSlides");
+const carousel = document.querySelector(".ice-cream-tastes__slides");
+const prevButtons = document.querySelectorAll(".ice-cream-tastes__btn-prev");
+const nextButtons = document.querySelectorAll(".ice-cream-tastes__btn-next");
+
 let tastesHtml = "";
 
 ice_creams.forEach((ice_cream) => {
@@ -18,22 +21,22 @@ ice_creams.forEach((ice_cream) => {
 
 slidesContainer.innerHTML = tastesHtml;
 
-
-const carousel = document.querySelector(".ice-cream-tastes__slides");
-const prevButtons = document.querySelectorAll(".ice-cream-tastes__btn-prev");
-const nextButtons = document.querySelectorAll(".ice-cream-tastes__btn-next");
-
 if (carousel && carousel.querySelector(".ice-cream-tastes__slide")) {
-  const firstCardWidth = carousel.querySelector(".ice-cream-tastes__slide").offsetWidth;
-  
+  const firstCardWidth = carousel.querySelector(
+    ".ice-cream-tastes__slide"
+  ).offsetWidth;
+
   let cardPreview = Math.round(carousel.offsetWidth / firstCardWidth);
   const carouselChildren = [...carousel.children];
 
-  carouselChildren.slice(-cardPreview).reverse().forEach(card => {
-    carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
-  });
+  carouselChildren
+    .slice(-cardPreview)
+    .reverse()
+    .forEach((card) => {
+      carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+    });
 
-  carouselChildren.slice(0, cardPreview).forEach(card => {
+  carouselChildren.slice(0, cardPreview).forEach((card) => {
     carousel.insertAdjacentHTML("beforeend", card.outerHTML);
   });
 
@@ -45,16 +48,19 @@ if (carousel && carousel.querySelector(".ice-cream-tastes__slide")) {
 
   nextButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      carousel.scrollLeft += firstCardWidth + 20; 
+      carousel.scrollLeft += firstCardWidth + 20;
     });
   });
 
   const infiniteScroll = () => {
     if (carousel.scrollLeft <= 0) {
       carousel.classList.add("no-transition");
-      carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
+      carousel.scrollLeft = carousel.scrollWidth - 2 * carousel.offsetWidth;
       carousel.classList.remove("no-transition");
-    } else if (Math.ceil(carousel.scrollLeft) >= carousel.scrollWidth - carousel.offsetWidth) {
+    } else if (
+      Math.ceil(carousel.scrollLeft) >=
+      carousel.scrollWidth - carousel.offsetWidth
+    ) {
       carousel.classList.add("no-transition");
       carousel.scrollLeft = carousel.offsetWidth;
       carousel.classList.remove("no-transition");
@@ -62,7 +68,6 @@ if (carousel && carousel.querySelector(".ice-cream-tastes__slide")) {
   };
 
   carousel.addEventListener("scroll", infiniteScroll);
-
 } else {
   console.error("Carousel or slides not found.");
 }

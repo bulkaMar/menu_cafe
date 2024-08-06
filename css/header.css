@@ -1,38 +1,187 @@
-.header{
-	background-image: url(../img/background-header-hero.png);
-	width: 100%;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
+.header {
+  position: relative;
+  z-index: 1;
+  background-image: url(../img/background-header-hero.png);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
-.nav-list__link a{
-	color: var(--global-text);
-	font-weight: 500px;
-	font-size: 18px;
-	font-family: "Source Sans 3", sans-serif;
-	font-style: normal;
+.header__background {
+  background-image: linear-gradient(#2e2f328c, #1f202299),
+    url(../img/index-header-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50.7% 0%;
 }
-.header__nav-logo{
-	width: 129px;
-	height: 63px;
+.header__nav {
+  display: flex;
+  align-items: center;
+  color: var(--light-color);
+  letter-spacing: 0.3px;
+  justify-content: space-between;
+  padding: 40px 30px;
+  gap: 6px;
 }
-
-@media (min-width: 991px){
-	.header__nav{
-		padding: 30px 0px;
-	}
-	.header__nav-content{
-		display: flex;
-		justify-content: space-around;
-	}
-	.header__nav-menu-link{
-		display: flex;
-	}
-	.header__nav-list{
-		display: flex;
-	}
-	.nav-list__link{
-		margin-left: 20px;
-		margin-top: 15px;
-	}
+.header__nav-link {
+  display: block;
+  width: 218px;
+}
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 400;
+  font-size: 17px;
+  letter-spacing: 0;
+  gap: 20px;
+}
+.nav-list__link a {
+  position: relative;
+  display: inline-block;
+}
+.header__menu-btn {
+  padding-right: 10px;
+}
+.header__nav-content {
+  display: contents;
+  padding: 0px 30px;
+}
+.nav-list__link:not(.btn-nav) a::before {
+  content: "";
+  bottom: -4px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  color: var(--burger-menu);
+  opacity: 0.8;
+  transform: scaleX(0);
+  transition: all 0.2s ease-in-out;
+}
+.nav-list__link:not(.btn-nav) a:hover::before {
+  transform: scaleX(1);
+  background-color: var(--burger-menu);
+}
+.nav-list__link a {
+  color: var(--global-text);
+  font-weight: 500px;
+  font-size: 18px;
+  font-family: "Source Sans 3", sans-serif;
+  font-style: normal;
+}
+.header__nav-menu {
+  top: -100vh;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  gap: 30px;
+  z-index: 1;
+}
+.header__navicon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  position: relative;
+  background: var(--burger-menu);
+  cursor: pointer;
+  transition: background 0.2s ease-out;
+}
+.header__navicon::before,
+.header__navicon::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background: var(--burger-menu);
+  transition: all 0.2s ease-out;
+}
+.header__navicon:before {
+  top: 7px;
+}
+.header__navicon:after {
+  top: -7px;
+}
+.header.nav-visible .header__nav-menu {
+  top: 110px;
+}
+.header.nav-visible .header__background,
+.header.nav-visible .header__nav-menu {
+  background: var(--global-background);
+}
+.header.nav-visible .header__navicon {
+  background: transparent;
+}
+.header.nav-visible .header__navicon::before {
+  transform: rotate(-45deg);
+}
+.header.nav-visible .header__navicon::after {
+  transform: rotate(45deg);
+}
+.header.nav-visible .header__navicon::before,
+.header.nav-visible .header__navicon::after {
+  top: 0;
+}
+.header__nav-logo {
+  width: 129px;
+  height: 63px;
+}
+.header.nav-visible {
+  background-color: var(--global-background);
+  background: var(--global-background);
+}
+.header.nav-visible .header__nav-menu {
+  background: none;
+}
+.header.nav-visible .header__background,
+.header.nav-visible .header__nav-menu {
+  background: var(--global-background);
+}
+@media (min-width: 1110px) {
+  .header__nav {
+    padding: 45px 45px;
+    gap: 8px;
+  }
+  .header__menu-btn {
+    display: none;
+  }
+  .header__nav-menu {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: auto;
+    order: 2;
+    gap: 8px;
+    height: auto;
+  }
+  .nav-list {
+    flex-direction: row;
+    font-size: 15px;
+    gap: 30px;
+  }
+  .header__nav-btn {
+    margin-left: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .header__nav {
+    padding: 45px 90px;
+  }
+  .header__nav-logo {
+    width: 170px;
+    height: 100%;
+  }
+  .header__nav-content {
+    padding-left: 30px;
+  }
 }

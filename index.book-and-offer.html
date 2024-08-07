@@ -14,9 +14,9 @@
             <p class="book-table__content-subtitle">
               Hurry Up to Book the Coziest Table Now!
             </p>
-            <a href="" class="book-table__content-btn">
-              <span>Book a Table</span></a
-            >
+            <button id="open-modal" class="book-table__content-btn">
+              Book a Table
+            </button>
           </div>
           <div class="special-offer__content">
             <h2 class="special-offer__content-subtitle">
@@ -27,8 +27,82 @@
             >
           </div>
         </div>
+        <div class="book-table-modal" id="modal-container">
+          <div class="modal-content">
+            <div class="modal-close close-modal" title="Close">
+              <img
+                class="modal-close close-modal"
+                src="img/book-and-offer/icons-close.png"
+                alt="Close icon"
+              />
+            </div>
+            <div class="book-table-content">
+              <h2 class="book-table-content-title">Booking</h2>
+              <p class="book-table-content-subtitle">Book a table</p>
+              <p class="book-table-content-secondary">
+                Please fill out the form below
+              </p>
+              <div class="book-table-content-form-container">
+                <form
+                  action="https://formspree.io/f/xanwjynp"
+                  method="POST"
+                  id="reservation__form"
+                  class="reservation-form"
+                >
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Your Name*"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder="Phone number*"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="Email*"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="date"
+                      id="date"
+                      name="date"
+                      placeholder="Choose date"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="number"
+                      id="people"
+                      name="people"
+                      placeholder="Number of people*"
+                      required
+                    />
+                  </div>
+                  <button type="submit" class="submit-button">
+                    Book a Table
+                  </button>
+                  <p class="reservation__form-status" id="reservation__form-status"></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-	
   </body>
 </html>

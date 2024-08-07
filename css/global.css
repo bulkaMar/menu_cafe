@@ -12,6 +12,7 @@
   --global-background: #493b5f;
   --global-description: #daecf9aa;
   --global-button: #ffc452;
+  --button-book-table:#8a4160;
   --button-hover-yel: #cb9018;
   --button-hover-pink: #ca7097;
   --button-hover-purp: #735a9b;
@@ -26,6 +27,7 @@
   --footer-secondary: rgb(185, 177, 197);
   --burger-menu: #eff8ff;
   --line-our-menu: #b87390;
+  --modal-booking:#a55979;
 }
 img {
   display: block;

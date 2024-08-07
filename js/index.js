@@ -2,6 +2,8 @@ function init() {
   import("./header.js");
   import("./index.carousel-ice-cream-tastes.js");
   import("./index.tab-menu.js");
+  import("./index.modal-booking.js");
+  import("./index.book-table.js");
 }
 
 const totalPartials = document.querySelectorAll(

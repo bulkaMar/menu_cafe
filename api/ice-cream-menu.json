@@ -2,41 +2,65 @@
     {
         "name": "Lemon & Lime",
         "price": 6,
-        "img": "img/ice-cream-menu/lemon-lime.png"
+        "img": "img/ice-cream-menu/lemon-lime.png",
+        "ingredients": ["Lemon", "Lime", "Sugar", "Milk"],
+        "weight": 150,
+        "description": "A tangy, refreshing blend of lemon and lime with creamy milk."
     },
     {
         "name": "Blackberry",
         "price": 7,
-        "img": "img/ice-cream-menu/blackberry.png"
+        "img": "img/ice-cream-menu/blackberry.png",
+        "ingredients": ["Blackberry", "Cream", "Sugar"],
+        "weight": 150,
+        "description": "Creamy and rich with vibrant blackberry flavor."
     },
     {
         "name": "Mango",
         "price": 5,
-        "img": "img/ice-cream-menu/mango.png"
+        "img": "img/ice-cream-menu/mango.png",
+        "ingredients": ["Mango", "Cream", "Sugar"],
+        "weight": 150,
+        "description": "Sweet and creamy with ripe mango goodness."
     },
     {
         "name": "Lavender",
         "price": 8,
-        "img": "img/ice-cream-menu/lavender.png"
+        "img": "img/ice-cream-menu/lavender.png",
+        "ingredients": ["Lavender", "Cream", "Sugar"],
+        "weight": 150,
+        "description": "Elegant and creamy with a hint of lavender."
     },
     {
         "name": "Vanilla",
         "price": 4,
-        "img": "img/ice-cream-menu/vanilla.png"
+        "img": "img/ice-cream-menu/vanilla.png",
+        "ingredients": ["Vanilla", "Cream", "Sugar"],
+        "weight": 150,
+        "description": "Classic vanilla with a smooth, creamy texture."
     },
     {
         "name": "Chocolate",
         "price": 5,
-        "img": "img/ice-cream-menu/chocolate.png"
+        "img": "img/ice-cream-menu/chocolate.png",
+        "ingredients": ["Chocolate", "Cream", "Sugar"],
+        "weight": 150,
+        "description": "Decadent and creamy with rich chocolate flavor."
     },
     {
         "name": "Strawberry",
         "price": 5,
-        "img": "img/ice-cream-menu/strawberry.png"
+        "img": "img/ice-cream-menu/strawberry.png",
+        "ingredients": ["Strawberry", "Cream", "Sugar"],
+        "weight": 150,
+        "description": "Sweet and creamy with a fresh strawberry taste."
     },
     {
         "name": "Pistachio",
         "price": 5,
-        "img": "img/ice-cream-menu/pistachio.png"
+        "img": "img/ice-cream-menu/pistachio.png",
+        "ingredients": ["Pistachio", "Cream", "Sugar"],
+        "weight": 150,
+        "description": "Nutty and creamy with a rich pistachio flavor."
     }
 ]

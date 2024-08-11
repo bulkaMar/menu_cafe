@@ -2,41 +2,65 @@
     {
         "name": "Strawberry",
         "price": 10,
-        "img": "img/shake-menu/strawberry.png"
+        "img": "img/shake-menu/strawberry.png",
+        "volume": 300,
+        "ingredients": ["Strawberries", "Milk", "Sugar", "Ice Cream"],
+        "description": "A creamy strawberry shake with ice cream."
     },
     {
         "name": "Caramel",
         "price": 8,
-        "img": "img/shake-menu/caramel.png"
+        "img": "img/shake-menu/caramel.png",
+        "volume": 300,
+        "ingredients": ["Caramel Syrup", "Milk", "Sugar", "Ice Cream"],
+        "description": "Sweet caramel shake with smooth ice cream."
     },
     {
         "name": "Berry Shake",
         "price": 12,
-        "img": "img/shake-menu/berry-shake.png"
+        "img": "img/shake-menu/berry-shake.png",
+        "volume": 350,
+        "ingredients": ["Mixed Berries", "Yogurt", "Honey", "Ice"],
+        "description": "Berry blend with yogurt and honey."
     },
     {
         "name": "Choco-Choco",
         "price": 9,
-        "img": "img/shake-menu/choco-choco.png"
+        "img": "img/shake-menu/choco-choco.png",
+        "volume": 300,
+        "ingredients": ["Chocolate Syrup", "Milk", "Cocoa Powder", "Ice Cream"],
+        "description": "Rich chocolate shake with cocoa and ice cream."
     },
     {
         "name": "Mango Shake",
         "price": 8,
-        "img": "img/shake-menu/mango-shake.png"
+        "img": "img/shake-menu/mango-shake.png",
+        "volume": 300,
+        "ingredients": ["Mango Pulp", "Milk", "Sugar", "Ice"],
+        "description": "Smooth mango shake with a creamy texture."
     },
     {
         "name": "Orange Shake",
         "price": 9,
-        "img": "img/shake-menu/orange-shake.png"
+        "img": "img/shake-menu/orange-shake.png",
+        "volume": 300,
+        "ingredients": ["Orange Juice", "Milk", "Sugar", "Ice"],
+        "description": "Citrusy orange shake with a creamy touch."
     },
     {
         "name": "Banana Shake",
         "price": 8,
-        "img": "img/shake-menu/banana-shake.png"
+        "img": "img/shake-menu/banana-shake.png",
+        "volume": 300,
+        "ingredients": ["Bananas", "Milk", "Honey", "Ice Cream"],
+        "description": "Creamy banana shake with honey."
     },
     {
         "name": "Ice Latte",
         "price": 10,
-        "img": "img/shake-menu/ice-latte.png"
+        "img": "img/shake-menu/ice-latte.png",
+        "volume": 250,
+        "ingredients": ["Coffee", "Milk", "Sugar", "Ice"],
+        "description": "Chilled coffee with milk and sugar."
     }
 ]

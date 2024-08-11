@@ -7,6 +7,11 @@
   background-size: cover;
   background-position: center;
 }
+.header-menu {
+  position: relative;
+  z-index: 1;
+  background-color: var(--header-menu);
+}
 .header__background {
   background-image: linear-gradient(#2e2f328c, #1f202299),
     url(../img/index-header-background.jpg);
@@ -112,21 +117,41 @@
 .header.nav-visible .header__nav-menu {
   top: 110px;
 }
+.header-menu.nav-visible .header__nav-menu {
+  top: 110px;
+}
 .header.nav-visible .header__background,
 .header.nav-visible .header__nav-menu {
   background: var(--global-background);
 }
+.header-menu.nav-visible .header__background,
+.header-menu.nav-visible .header__nav-menu {
+  background: var(--header-menu);
+}
 .header.nav-visible .header__navicon {
+  background: transparent;
+}
+.header-menu.nav-visible .header__navicon {
   background: transparent;
 }
 .header.nav-visible .header__navicon::before {
   transform: rotate(-45deg);
 }
+.header-menu.nav-visible .header__navicon::before {
+  transform: rotate(-45deg);
+}
 .header.nav-visible .header__navicon::after {
+  transform: rotate(45deg);
+}
+.header-menu.nav-visible .header__navicon::after {
   transform: rotate(45deg);
 }
 .header.nav-visible .header__navicon::before,
 .header.nav-visible .header__navicon::after {
+  top: 0;
+}
+.header-menu.nav-visible .header__navicon::before,
+.header-menu.nav-visible .header__navicon::after {
   top: 0;
 }
 .header__nav-logo {
@@ -137,12 +162,23 @@
   background-color: var(--global-background);
   background: var(--global-background);
 }
+.header-menu.nav-visible {
+  background-color: var(--header-menu);
+  background: var( --header-menu);
+}
 .header.nav-visible .header__nav-menu {
+  background: none;
+}
+.header-menu.nav-visible .header__nav-menu {
   background: none;
 }
 .header.nav-visible .header__background,
 .header.nav-visible .header__nav-menu {
   background: var(--global-background);
+}
+.header-menu.nav-visible .header__background,
+.header-menu.nav-visible .header__nav-menu {
+  background: var(--header-menu);
 }
 @media (min-width: 1110px) {
   .header__nav {

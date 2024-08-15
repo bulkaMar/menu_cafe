@@ -29,6 +29,7 @@
   font-size: 18px;
   font-family: "Source Sans 3", sans-serif;
   margin-bottom: 25px;
+  text-decoration: underline;
 }
 .our-menu__tab-box {
   display: flex;

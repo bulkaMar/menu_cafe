@@ -64,7 +64,7 @@ function renderModal() {
           ice_cream.weight
         } grams</p>
 			  <p class="menu-view-menu-modal-price">$${ice_cream.price}</p>
-			  <button class="menu-view-menu-modal-add"><span>Add to favorite</span></button>
+			  <button class="menu-view-menu-modal-add" data-id="${ice_cream.name}"><span>Add to favorite</span></button>
 			</div>
 		  </div>
 		`;
@@ -112,3 +112,5 @@ modalContainer.onclick = (event) => {
       });
   }
 };
+
+

@@ -1,4 +1,5 @@
 const modalContainer = document.querySelector("#modal-container-des");
+const shopingCart = document.querySelector('#shopping_cart-des');
 
 const response = await fetch("api/desserts-menu.json");
 const desserts = await response.json();
@@ -112,3 +113,4 @@ modalContainer.onclick = (event) => {
       });
   }
 };
+

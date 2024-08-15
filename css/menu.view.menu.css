@@ -34,6 +34,7 @@
   text-align: center;
 }
 .view-menu-meals-item-img img {
+  cursor: pointer;
   width: 70px;
   height: 70px;
   padding: 10px;
@@ -43,11 +44,9 @@
   border: 1px solid transparent;
   transition: border 0.3s;
 }
-
 .view-menu-meals-item-img img:hover {
   border: 1px solid #b2cdee;
 }
-
 .view-menu-meals-item,
 .view-menu-meals-item-ice,
 .view-menu-meals-item-des {
@@ -111,13 +110,13 @@
   margin: 0 auto;
 }
 .menu-view-menu-modal {
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;
   min-height: 100vh;
   width: 100%;
   background-color: #5076a1b6;
-  border-radius: 5px;
   padding: 0px 24px;
   display: none;
   align-items: center;
@@ -132,6 +131,7 @@
   padding: 20px 24px;
   transition: all 0.3s;
   background-color: #88a8d0;
+  border-radius: 30px;
 }
 .menu-view-menu-modal-content.active,
 .menu-view-menu-modal-content-ice.active,
@@ -145,7 +145,7 @@
 }
 .modal-close,
 .modal-close-des,
-.modal-close-ice{
+.modal-close-ice {
   display: inline-flex;
   position: absolute;
   top: 1rem;
@@ -244,6 +244,17 @@
   font-style: normal;
   text-align: center;
 }
+.shopping_cart-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 170px;
+  background-color: #bd7b97;
+  height: 100vh;
+  transition: 0.5s;
+  z-index: 1;
+}
 @media (min-width: 450px) {
   .menu-view-menu-modal-content,
   .menu-view-menu-modal-content-ice,
@@ -301,7 +312,7 @@
 }
 @media (min-width: 960px) {
   .menu-view-menu-meals,
-  .menu-view-menu-meals-ice{
+  .menu-view-menu-meals-ice {
     flex: 0 0 48%;
     gap: 50px;
   }

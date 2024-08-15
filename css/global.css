@@ -48,6 +48,7 @@ li {
 .container {
   max-width: 1200px;
   margin: auto;
+  transition: 0.5s;
 }
 .overflow-hidden {
   overflow: hidden;

@@ -1,5 +1,6 @@
 [
     {
+        "id": 9,
         "name": "Sweet Joy",
         "price": 15,
         "img": "img/desserts-menu/sweet-joy.png",
@@ -8,6 +9,7 @@
         "description": "Rich and buttery with a hint of vanilla."
     },
     {
+        "id": 10,
         "name": "Gentle Cloud",
         "price": 12,
         "img": "img/desserts-menu/gentle-cloud.png",
@@ -16,6 +18,7 @@
         "description": "Light and airy with creamy vanilla flavor."
     },
     {
+        "id": 11,
         "name": "Rose Sparkle",
         "price": 15,
         "img": "img/desserts-menu/rose-sparkle.png",
@@ -24,6 +27,7 @@
         "description": "Floral rose water with a refreshing taste."
     },
     {
+        "id": 12,
         "name": "Tropical Day",
         "price": 18,
         "img": "img/desserts-menu/tropical-day.png",
@@ -32,6 +36,7 @@
         "description": "Tropical pineapple and coconut milk blend."
     },
     {
+        "id": 13,
         "name": "Hazelnut",
         "price": 12,
         "img": "img/desserts-menu/hazelnut.png",
@@ -40,6 +45,7 @@
         "description": "Decadent hazelnut and chocolate treat."
     },
     {
+        "id": 14,
         "name": "Berry Mix",
         "price": 13,
         "img": "img/desserts-menu/berry-mix.png",
@@ -48,6 +54,7 @@
         "description": "Berry and cream blend with fruity flavor."
     },
     {
+        "id": 15,
         "name": "Siesta",
         "price": 15,
         "img": "img/desserts-menu/siesta.png",
@@ -56,6 +63,7 @@
         "description": "Coffee and cream with a chocolate hint."
     },
     {
+        "id": 16,
         "name": "Choco Cream",
         "price": 11,
         "img": "img/desserts-menu/choco-cream.png",

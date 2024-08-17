@@ -1,66 +1,74 @@
 [
     {
-        "name": "Strawberry",
-        "price": 10,
-        "img": "img/shake-menu/strawberry.png",
-        "volume": 300,
-        "ingredients": ["Strawberries", "Milk", "Sugar", "Ice Cream"],
-        "description": "A creamy strawberry shake with ice cream."
+        "id": 17,
+        "name": "Sweet Joy",
+        "price": 15,
+        "img": "img/desserts-menu/sweet-joy.png",
+        "ingredients": ["Sugar", "Butter", "Flour", "Eggs", "Vanilla"],
+        "weight": 200,
+        "description": "Rich and buttery with a hint of vanilla."
     },
     {
-        "name": "Caramel",
-        "price": 8,
-        "img": "img/shake-menu/caramel.png",
-        "volume": 300,
-        "ingredients": ["Caramel Syrup", "Milk", "Sugar", "Ice Cream"],
-        "description": "Sweet caramel shake with smooth ice cream."
-    },
-    {
-        "name": "Berry Shake",
+        "id": 18,
+        "name": "Gentle Cloud",
         "price": 12,
-        "img": "img/shake-menu/berry-shake.png",
-        "volume": 350,
-        "ingredients": ["Mixed Berries", "Yogurt", "Honey", "Ice"],
-        "description": "Berry blend with yogurt and honey."
+        "img": "img/desserts-menu/gentle-cloud.png",
+        "ingredients": ["Cream", "Sugar", "Gelatin", "Vanilla"],
+        "weight": 180,
+        "description": "Light and airy with creamy vanilla flavor."
     },
     {
-        "name": "Choco-Choco",
-        "price": 9,
-        "img": "img/shake-menu/choco-choco.png",
-        "volume": 300,
-        "ingredients": ["Chocolate Syrup", "Milk", "Cocoa Powder", "Ice Cream"],
-        "description": "Rich chocolate shake with cocoa and ice cream."
+        "id": 19,
+        "name": "Rose Sparkle",
+        "price": 15,
+        "img": "img/desserts-menu/rose-sparkle.png",
+        "ingredients": ["Rose Water", "Sugar", "Cream", "Gelatin"],
+        "weight": 190,
+        "description": "Floral rose water with a refreshing taste."
     },
     {
-        "name": "Mango Shake",
-        "price": 8,
-        "img": "img/shake-menu/mango-shake.png",
-        "volume": 300,
-        "ingredients": ["Mango Pulp", "Milk", "Sugar", "Ice"],
-        "description": "Smooth mango shake with a creamy texture."
+        "id": 20,
+        "name": "Tropical Day",
+        "price": 18,
+        "img": "img/desserts-menu/tropical-day.png",
+        "ingredients": ["Pineapple", "Coconut Milk", "Sugar", "Gelatin"],
+        "weight": 210,
+        "description": "Tropical pineapple and coconut milk blend."
     },
     {
-        "name": "Orange Shake",
-        "price": 9,
-        "img": "img/shake-menu/orange-shake.png",
-        "volume": 300,
-        "ingredients": ["Orange Juice", "Milk", "Sugar", "Ice"],
-        "description": "Citrusy orange shake with a creamy touch."
+        "id": 21,
+        "name": "Hazelnut",
+        "price": 12,
+        "img": "img/desserts-menu/hazelnut.png",
+        "ingredients": ["Hazelnuts", "Sugar", "Butter", "Chocolate"],
+        "weight": 200,
+        "description": "Decadent hazelnut and chocolate treat."
     },
     {
-        "name": "Banana Shake",
-        "price": 8,
-        "img": "img/shake-menu/banana-shake.png",
-        "volume": 300,
-        "ingredients": ["Bananas", "Milk", "Honey", "Ice Cream"],
-        "description": "Creamy banana shake with honey."
+        "id": 22,
+        "name": "Berry Mix",
+        "price": 13,
+        "img": "img/desserts-menu/berry-mix.png",
+        "ingredients": ["Mixed Berries", "Sugar", "Cream", "Gelatin"],
+        "weight": 180,
+        "description": "Berry and cream blend with fruity flavor."
     },
     {
-        "name": "Ice Latte",
-        "price": 10,
-        "img": "img/shake-menu/ice-latte.png",
-        "volume": 250,
-        "ingredients": ["Coffee", "Milk", "Sugar", "Ice"],
-        "description": "Chilled coffee with milk and sugar."
+        "id": 23,
+        "name": "Siesta",
+        "price": 15,
+        "img": "img/desserts-menu/siesta.png",
+        "ingredients": ["Coffee", "Sugar", "Cream", "Chocolate"],
+        "weight": 200,
+        "description": "Coffee and cream with a chocolate hint."
+    },
+    {
+        "id": 24,
+        "name": "Choco Cream",
+        "price": 11,
+        "img": "img/desserts-menu/choco-cream.png",
+        "ingredients": ["Chocolate", "Cream", "Sugar", "Vanilla"],
+        "weight": 190,
+        "description": "Smooth chocolate dessert with vanilla."
     }
 ]

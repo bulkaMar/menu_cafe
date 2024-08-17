@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "name": "Lemon & Lime",
         "price": 6,
         "img": "img/ice-cream-menu/lemon-lime.png",
@@ -8,6 +9,7 @@
         "description": "A tangy, refreshing blend of lemon and lime with creamy milk."
     },
     {
+        "id": 2,
         "name": "Blackberry",
         "price": 7,
         "img": "img/ice-cream-menu/blackberry.png",
@@ -16,6 +18,7 @@
         "description": "Creamy and rich with vibrant blackberry flavor."
     },
     {
+        "id": 3,
         "name": "Mango",
         "price": 5,
         "img": "img/ice-cream-menu/mango.png",
@@ -24,6 +27,7 @@
         "description": "Sweet and creamy with ripe mango goodness."
     },
     {
+        "id": 4,
         "name": "Lavender",
         "price": 8,
         "img": "img/ice-cream-menu/lavender.png",
@@ -32,6 +36,7 @@
         "description": "Elegant and creamy with a hint of lavender."
     },
     {
+        "id": 5,
         "name": "Vanilla",
         "price": 4,
         "img": "img/ice-cream-menu/vanilla.png",
@@ -40,6 +45,7 @@
         "description": "Classic vanilla with a smooth, creamy texture."
     },
     {
+        "id": 6,
         "name": "Chocolate",
         "price": 5,
         "img": "img/ice-cream-menu/chocolate.png",
@@ -48,6 +54,7 @@
         "description": "Decadent and creamy with rich chocolate flavor."
     },
     {
+        "id": 7,
         "name": "Strawberry",
         "price": 5,
         "img": "img/ice-cream-menu/strawberry.png",
@@ -56,6 +63,7 @@
         "description": "Sweet and creamy with a fresh strawberry taste."
     },
     {
+        "id": 8,
         "name": "Pistachio",
         "price": 5,
         "img": "img/ice-cream-menu/pistachio.png",

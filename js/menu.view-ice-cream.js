@@ -1,116 +1,166 @@
-const modalContainer = document.querySelector("#modal-container-ice");
-const leftColumn = document.getElementById("left-column");
-const rightColumn = document.getElementById("right-column");
+import { Cart } from "./cart.js";
+import { ProductsService } from "./products-service.js";
 
-const response = await fetch("api/ice-cream-menu.json");
-const ice_creams = await response.json();
-
-let leftItems = "";
-let rightItems = "";
-
-ice_creams.forEach((ice_cream, index) => {
-  const itemHtml = `
-		<div class="view-menu-meals-item-ice" data-name="${ice_cream.name}">
-		  <div class="view-menu-meals-item-img">
-			<img src="${ice_cream.img}" alt="${ice_cream.name}" />
-		  </div>
-		  <div class="view-menu-meals-item-text">
-			<div class="view-menu-meals-item-container">
-			  <h2 class="view-menu-meals-item-title">${ice_cream.name}</h2>
-			  <div class="view-menu-meals-item-line"></div>
-			  <p class="view-menu-meals-item-price">$${ice_cream.price}</p>
-			</div>
-			<p class="view-menu-meals-item-desc">${ice_cream.description}</p>
-		  </div>
-		</div>
-	  `;
-  if (index < 4) {
-    leftItems += itemHtml;
-  } else {
-    rightItems += itemHtml;
+export class ProductList {
+  constructor() {
+    console.log("ProductList constructor called");
+    this.container = document.querySelector("#modal-container-ice");
+    this.productsService = new ProductsService();
+    this.leftColumn = document.getElementById("left-column");
+    this.rightColumn = document.getElementById("right-column");
+    if (!this.container || !this.leftColumn || !this.rightColumn) {
+      console.error("One or more required elements are missing from the DOM.");
+      return;
+    }
+    this.renderProducts();
   }
-});
 
-leftColumn.innerHTML = leftItems;
-rightColumn.innerHTML = rightItems;
+  async renderProducts() {
+    console.log("Rendering products...");
+    let leftItems = "";
+    let rightItems = "";
+    try {
+      const products = await this.productsService.getProducts();
+      console.log("Products fetched:", products);
 
-function renderModal() {
-  let modalHtml = "";
-  ice_creams.forEach((ice_cream) => {
-    modalHtml += `
-		  <div class="menu-view-menu-modal-content-ice" data-target="${ice_cream.name}">
-			<div class="modal-close-ice close-modal-ice" title="Close">
-			  <img
-				class="modal-close-ice close-modal-ice"
-				src="img/book-and-offer/icons-close.png"
-				alt="Close icon"
-			  />
-			</div>
-			<div class="menu-view-menu-modal-img">
-			  <img
-				src="${ice_cream.img}"
-				alt="${ice_cream.name}"
-			  />
-			</div>
-			<div class="menu-view-menu-modal-text">
-			  <h2 class="menu-view-menu-modal-title">${ice_cream.name}</h2>
-			  <p class="menu-view-menu-modal-desc">
-				${ice_cream.description}
-			  </p>
-			  <p class="menu-view-menu-modal-ingridients">
-				<span>Ingredients:</span> ${ice_cream.ingredients.join(", ")}
-			  </p>
-			  <p class="menu-view-menu-modal-weight"><span>Weight:</span> ${
-          ice_cream.weight
-        } grams</p>
-			  <p class="menu-view-menu-modal-price">$${ice_cream.price}</p>
-			  <button class="menu-view-menu-modal-add" data-id="${ice_cream.name}"><span>Add to favorite</span></button>
-			</div>
-		  </div>
-		`;
-  });
-  modalContainer.innerHTML = modalHtml;
-}
+      if (products.length === 0) {
+        console.warn("No products available.");
+      }
 
-renderModal();
-
-document.querySelectorAll(".view-menu-meals-item-ice").forEach((product) => {
-  product.onclick = () => {
-    const name = product.getAttribute("data-name");
-    document
-      .querySelectorAll(".menu-view-menu-modal-content-ice")
-      .forEach((content) => {
-        if (content.getAttribute("data-target") === name) {
-          content.style.display = "flex";
+      products.forEach((product, index) => {
+        const itemHtml = `
+                    <div class="view-menu-meals-item-ice" data-name="${product.name}">
+                        <div class="view-menu-meals-item-img">
+                            <img src="${product.img}" alt="${product.name}" />
+                        </div>
+                        <div class="view-menu-meals-item-text">
+                            <div class="view-menu-meals-item-container">
+                                <h2 class="view-menu-meals-item-title">${product.name}</h2>
+                                <div class="view-menu-meals-item-line"></div>
+                                <p class="view-menu-meals-item-price">$${product.price}</p>
+                            </div>
+                            <p class="view-menu-meals-item-desc">${product.description}</p>
+                        </div>
+                    </div>
+                `;
+        if (index < Math.ceil(products.length / 2)) {
+          leftItems += itemHtml;
         } else {
-          content.style.display = "none";
+          rightItems += itemHtml;
         }
       });
 
-    modalContainer.style.display = "flex";
-  };
-});
+      console.log("Left column items:", leftItems);
+      console.log("Right column items:", rightItems);
 
-document.querySelectorAll(".modal-close-ice").forEach((closeButton) => {
-  closeButton.onclick = () => {
-    modalContainer.style.display = "none";
-    document
-      .querySelectorAll(".menu-view-menu-modal-content")
-      .forEach((content) => {
-        content.style.display = "none";
-      });
-  };
-});
+      this.leftColumn.innerHTML = leftItems;
+      this.rightColumn.innerHTML = rightItems;
 
-modalContainer.onclick = (event) => {
-  if (event.target === modalContainer) {
-    modalContainer.style.display = "none";
-    document
-      .querySelectorAll(".menu-view-menu-modal-content")
-      .forEach((content) => {
-        content.style.display = "none";
-      });
+      this.renderModal(products);
+      this.addEventListeners();
+    } catch (error) {
+      console.error("Error rendering products:", error);
+    }
   }
-};
 
+  async renderModal(products) {
+    console.log("Rendering modal...");
+    let modalHtml = "";
+    products.forEach((product) => {
+      modalHtml += `
+                <div class="menu-view-menu-modal-content-ice" data-target="${
+                  product.name
+                }">
+                    <div class="modal-close-ice close-modal-ice" title="Close">
+                        <img
+                            class="modal-close-ice close-modal-ice"
+                            src="img/book-and-offer/icons-close.png"
+                            alt="Close icon"
+                        />
+                    </div>
+                    <div class="menu-view-menu-modal-img">
+                        <img src="${product.img}" alt="${product.name}" />
+                    </div>
+                    <div class="menu-view-menu-modal-text">
+                        <h2 class="menu-view-menu-modal-title">${
+                          product.name
+                        }</h2>
+                        <p class="menu-view-menu-modal-desc">${
+                          product.description
+                        }</p>
+                        <p class="menu-view-menu-modal-ingridients">
+				          <span>Ingredients:</span> ${product.ingredients.join(", ")}
+				        </p>
+                        <p class="menu-view-menu-modal-weight"><span>Weight:</span> ${
+                          product.weight
+                        } grams</p>
+                        <p class="menu-view-menu-modal-price">$${
+                          product.price
+                        }</p>
+                        <button class="menu-view-menu-modal-add" data-id="${
+                          product.id
+                        }"><span>Add to favorite</span></button>
+                    </div>
+                </div>
+            `;
+    });
+    console.log((this.container.innerHTML = modalHtml));
+  }
 
+  addEventListeners() {
+    console.log("Adding event listeners...");
+
+    document.querySelectorAll(".menu-view-menu-modal-add").forEach((btn) => {
+      btn.addEventListener("click", this.addProductToCart.bind(this));
+    });
+
+    document
+      .querySelectorAll(".view-menu-meals-item-ice")
+      .forEach((product) => {
+        product.onclick = () => {
+          const name = product.getAttribute("data-name");
+          document
+            .querySelectorAll(".menu-view-menu-modal-content-ice")
+            .forEach((content) => {
+              if (content.getAttribute("data-target") === name) {
+                content.style.display = "flex";
+              } else {
+                content.style.display = "none";
+              }
+            });
+          this.container.style.display = "flex";
+        };
+      });
+
+    document.querySelectorAll(".modal-close-ice").forEach((closeButton) => {
+      closeButton.onclick = () => {
+        this.container.style.display = "none";
+        document
+          .querySelectorAll(".menu-view-menu-modal-content-ice")
+          .forEach((content) => {
+            content.style.display = "none";
+          });
+      };
+    });
+
+    this.container.onclick = (event) => {
+      if (event.target === this.container) {
+        this.container.style.display = "none";
+        document
+          .querySelectorAll(".menu-view-menu-modal-content-ice")
+          .forEach((content) => {
+            content.style.display = "none";
+          });
+      }
+    };
+  }
+
+  addProductToCart(event) {
+    const id = event.currentTarget.dataset.id;
+    console.log("Adding product to cart, ID:", id);
+    const cart = new Cart();
+    cart.addProduct(id);
+  }
+}
+
+new ProductList();

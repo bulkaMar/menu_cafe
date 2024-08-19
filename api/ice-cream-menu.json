@@ -6,7 +6,8 @@
         "img": "img/ice-cream-menu/lemon-lime.png",
         "ingredients": ["Lemon", "Lime", "Sugar", "Milk"],
         "weight": 150,
-        "description": "A tangy, refreshing blend of lemon and lime with creamy milk."
+        "description": "A tangy, refreshing blend of lemon and lime with creamy milk.",
+        "type": "ice-cream"
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "img": "img/ice-cream-menu/blackberry.png",
         "ingredients": ["Blackberry", "Cream", "Sugar"],
         "weight": 150,
-        "description": "Creamy and rich with vibrant blackberry flavor."
+        "description": "Creamy and rich with vibrant blackberry flavor.",
+        "type": "ice-cream"
     },
     {
         "id": 3,
@@ -24,7 +26,8 @@
         "img": "img/ice-cream-menu/mango.png",
         "ingredients": ["Mango", "Cream", "Sugar"],
         "weight": 150,
-        "description": "Sweet and creamy with ripe mango goodness."
+        "description": "Sweet and creamy with ripe mango goodness.",
+        "type": "ice-cream"
     },
     {
         "id": 4,
@@ -33,7 +36,8 @@
         "img": "img/ice-cream-menu/lavender.png",
         "ingredients": ["Lavender", "Cream", "Sugar"],
         "weight": 150,
-        "description": "Elegant and creamy with a hint of lavender."
+        "description": "Elegant and creamy with a hint of lavender.",
+        "type": "ice-cream"
     },
     {
         "id": 5,
@@ -42,7 +46,8 @@
         "img": "img/ice-cream-menu/vanilla.png",
         "ingredients": ["Vanilla", "Cream", "Sugar"],
         "weight": 150,
-        "description": "Classic vanilla with a smooth, creamy texture."
+        "description": "Classic vanilla with a smooth, creamy texture.",
+        "type": "ice-cream"
     },
     {
         "id": 6,
@@ -51,7 +56,8 @@
         "img": "img/ice-cream-menu/chocolate.png",
         "ingredients": ["Chocolate", "Cream", "Sugar"],
         "weight": 150,
-        "description": "Decadent and creamy with rich chocolate flavor."
+        "description": "Decadent and creamy with rich chocolate flavor.",
+        "type": "ice-cream"
     },
     {
         "id": 7,
@@ -60,7 +66,8 @@
         "img": "img/ice-cream-menu/strawberry.png",
         "ingredients": ["Strawberry", "Cream", "Sugar"],
         "weight": 150,
-        "description": "Sweet and creamy with a fresh strawberry taste."
+        "description": "Sweet and creamy with a fresh strawberry taste.",
+        "type": "ice-cream"
     },
     {
         "id": 8,
@@ -69,6 +76,7 @@
         "img": "img/ice-cream-menu/pistachio.png",
         "ingredients": ["Pistachio", "Cream", "Sugar"],
         "weight": 150,
-        "description": "Nutty and creamy with a rich pistachio flavor."
+        "description": "Nutty and creamy with a rich pistachio flavor.",
+        "type": "ice-cream"
     }
 ]

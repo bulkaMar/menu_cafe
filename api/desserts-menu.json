@@ -6,7 +6,8 @@
         "img": "img/desserts-menu/sweet-joy.png",
         "ingredients": ["Sugar", "Butter", "Flour", "Eggs", "Vanilla"],
         "weight": 200,
-        "description": "Rich and buttery with a hint of vanilla."
+        "description": "Rich and buttery with a hint of vanilla.",
+        "type": "desserts"
     },
     {
         "id": 10,
@@ -15,7 +16,8 @@
         "img": "img/desserts-menu/gentle-cloud.png",
         "ingredients": ["Cream", "Sugar", "Gelatin", "Vanilla"],
         "weight": 180,
-        "description": "Light and airy with creamy vanilla flavor."
+        "description": "Light and airy with creamy vanilla flavor.",
+        "type": "desserts"
     },
     {
         "id": 11,
@@ -24,7 +26,8 @@
         "img": "img/desserts-menu/rose-sparkle.png",
         "ingredients": ["Rose Water", "Sugar", "Cream", "Gelatin"],
         "weight": 190,
-        "description": "Floral rose water with a refreshing taste."
+        "description": "Floral rose water with a refreshing taste.",
+        "type": "desserts"
     },
     {
         "id": 12,
@@ -33,7 +36,8 @@
         "img": "img/desserts-menu/tropical-day.png",
         "ingredients": ["Pineapple", "Coconut Milk", "Sugar", "Gelatin"],
         "weight": 210,
-        "description": "Tropical pineapple and coconut milk blend."
+        "description": "Tropical pineapple and coconut milk blend.",
+        "type": "desserts"
     },
     {
         "id": 13,
@@ -42,7 +46,8 @@
         "img": "img/desserts-menu/hazelnut.png",
         "ingredients": ["Hazelnuts", "Sugar", "Butter", "Chocolate"],
         "weight": 200,
-        "description": "Decadent hazelnut and chocolate treat."
+        "description": "Decadent hazelnut and chocolate treat.",
+        "type": "desserts"
     },
     {
         "id": 14,
@@ -51,7 +56,8 @@
         "img": "img/desserts-menu/berry-mix.png",
         "ingredients": ["Mixed Berries", "Sugar", "Cream", "Gelatin"],
         "weight": 180,
-        "description": "Berry and cream blend with fruity flavor."
+        "description": "Berry and cream blend with fruity flavor.",
+        "type": "desserts"
     },
     {
         "id": 15,
@@ -60,7 +66,8 @@
         "img": "img/desserts-menu/siesta.png",
         "ingredients": ["Coffee", "Sugar", "Cream", "Chocolate"],
         "weight": 200,
-        "description": "Coffee and cream with a chocolate hint."
+        "description": "Coffee and cream with a chocolate hint.",
+        "type": "desserts"
     },
     {
         "id": 16,
@@ -69,6 +76,7 @@
         "img": "img/desserts-menu/choco-cream.png",
         "ingredients": ["Chocolate", "Cream", "Sugar", "Vanilla"],
         "weight": 190,
-        "description": "Smooth chocolate dessert with vanilla."
+        "description": "Smooth chocolate dessert with vanilla.",
+        "type": "desserts"
     }
 ]

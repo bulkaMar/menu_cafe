@@ -67,14 +67,16 @@
   margin-top: 75px;
   text-align: center;  
 }
-.shopping_cart-checkout-total{
-  position: fixed;
-  top: 800px;
+.shopping_cart-checkout-total {
+  position: sticky;
+  bottom: 0;
   padding-left: 60px;
   color: var(--global-text);
   font-size: 25px;
   font-family: "Leckerli One", cursive;
   font-weight: 400;
+  background-color: #bd7b97;
+  z-index: 2;
 }
 .button-container{
   display: flex;
@@ -142,11 +144,10 @@ body.activeTabCart .container{
 }
 .cart-title{
   color: var(--global-text);
-  font-size: 26px;
+  font-size: 20px;
   font-family: "Dangrek", cursive;
   font-weight: 400;
   line-height: 1.3;
-  width: 120px;
 }
 .cart-price{
   color: rgb(255, 255, 255);

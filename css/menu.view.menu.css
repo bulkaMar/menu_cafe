@@ -48,8 +48,8 @@
   border: 1px solid #b2cdee;
 }
 .view-menu-meals-item,
-.view-menu-meals-item-ice,
-.view-menu-meals-item-des {
+.view-menu-meals-item-ice-cream,
+.view-menu-meals-item-desserts {
   margin-top: 45px;
   display: flex;
   gap: 15px;
@@ -68,8 +68,8 @@
   flex: 1;
 }
 .view-menu-meals-item,
-.view-menu-meals-item-ice,
-.view-menu-meals-item-des {
+.view-menu-meals-item-ice-cream,
+.view-menu-meals-item-desserts {
   justify-content: space-between;
 }
 
@@ -123,8 +123,8 @@
   justify-content: center;
 }
 .menu-view-menu-modal-content,
-.menu-view-menu-modal-content-ice,
-.menu-view-menu-modal-content-des {
+.menu-view-menu-modal-content-ice-cream,
+.menu-view-menu-modal-content-desserts {
   display: none;
   flex-direction: column;
   position: relative;
@@ -134,8 +134,8 @@
   border-radius: 30px;
 }
 .menu-view-menu-modal-content.active,
-.menu-view-menu-modal-content-ice.active,
-.menu-view-menu-modal-content-des {
+.menu-view-menu-modal-content-ice-cream.active,
+.menu-view-menu-modal-content-desserts {
   display: inline-block;
 }
 .menu-view-menu-modal-text {
@@ -144,8 +144,8 @@
   align-items: center;
 }
 .modal-close,
-.modal-close-des,
-.modal-close-ice {
+.modal-close-desserts,
+.modal-close-ice-cream {
   display: inline-flex;
   position: absolute;
   top: 1rem;
@@ -153,8 +153,8 @@
   cursor: pointer;
 }
 .modal-close img,
-.modal-close-des img,
-.modal-close-ice img {
+.modal-close-desserts img,
+.modal-close-ice-cream img {
   width: 20px;
 }
 .menu-view-menu-modal-img {
@@ -220,7 +220,10 @@
   white-space: nowrap;
   text-align: center;
 }
-.menu-view-menu-modal-add {
+.menu-view-menu-modal-add, 
+.menu-view-menu-modal-add-desserts,
+.menu-view-menu-modal-add-drinks{
+  cursor: pointer;
   margin-top: 15px;
   border: none;
   border-radius: 32px;
@@ -233,10 +236,14 @@
   background-color: #6382a7;
   transition: background-color 0.3s ease;
 }
-.menu-view-menu-modal-add:hover {
-  background-color: #5a86bc;
+.menu-view-menu-modal-add:hover,
+.menu-view-menu-modal-add-desserts:hover,
+.menu-view-menu-modal-add-drinks:hover {
+  background-color: #3673bd;
 }
-.menu-view-menu-modal-add span {
+.menu-view-menu-modal-add span,
+.menu-view-menu-modal-add-desserts span,
+.menu-view-menu-modal-add-drinks span{
   color: var(--global-text);
   font-weight: bold;
   font-size: 16.5px;
@@ -257,8 +264,8 @@
 }
 @media (min-width: 450px) {
   .menu-view-menu-modal-content,
-  .menu-view-menu-modal-content-ice,
-  .menu-view-menu-modal-content-des {
+  .menu-view-menu-modal-content-ice-cream,
+  .menu-view-menu-modal-content-desserts {
     padding: 50px 24px;
   }
   .menu-view-menu-modal-img {
@@ -301,8 +308,8 @@
     font-size: 20px;
   }
   .modal-close,
-  .modal-close-des,
-  .modal-close-ice {
+  .modal-close-desserts,
+  .modal-close-ice-cream {
     display: inline-flex;
     position: absolute;
     top: 1rem;
@@ -328,8 +335,8 @@
     flex: 1;
   }
   .view-menu-meals-item,
-  .view-menu-meals-item-ice,
-  .view-menu-meals-item-des {
+  .view-menu-meals-item-ice-cream,
+  .view-menu-meals-item-desserts {
     justify-content: space-between;
   }
   .menu-view-menu__title {

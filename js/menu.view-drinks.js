@@ -1,44 +1,89 @@
-const modalContainer = document.querySelector("#modal-container-dr");
+import { Cart } from "./cart.js";
+import { ProductsService } from "./products-service.js";
 
-const response = await fetch("api/drinks-menu.json");
-const drinks = await response.json();
-const leftColumn = document.getElementById("left-column-dr");
-const rightColumn = document.getElementById("right-column-dr");
+export class DrinksList {
+  constructor() {
+    console.log("DrinkList constructor called");
 
-let leftItems = "";
-let rightItems = "";
+    this.drinksContainer = document.querySelector("#modal-container-dr");
+    this.leftColumnDrinks = document.getElementById("left-column-dr");
+    this.rightColumnDrinks = document.getElementById("right-column-dr");
 
-drinks.forEach((drink, index) => {
-  const itemHtml = `
-		<div class="view-menu-meals-item" data-name="${drink.name}">
+    if (
+      !this.drinksContainer ||
+      !this.leftColumnDrinks ||
+      !this.rightColumnDrinks
+    ) {
+      console.error("Drinks DOM elements are missing.");
+      return;
+    }
+
+    this.productsService = new ProductsService();
+    this.renderDrinks();
+  }
+
+  async renderDrinks() {
+    console.log(`Rendering drinks...`);
+    let leftItems = "";
+    let rightItems = "";
+
+    try {
+      const products = await this.productsService.getProducts();
+      console.log(`Drinks products fetched:`, products);
+
+      const filteredDrinks = products.filter(
+        (product) => product.type === "drinks"
+      );
+      if (filteredDrinks.length === 0) {
+        console.warn(`No drinks available.`);
+        return;
+      }
+
+      filteredDrinks.forEach((product, index) => {
+        const itemHtml = `
+		<div class="view-menu-meals-item" data-name="${product.name}">
 		  <div class="view-menu-meals-item-img">
-			<img src="${drink.img}" alt="${drink.name}" />
+			<img src="${product.img}" alt="${product.name}" />
 		  </div>
 		  <div class="view-menu-meals-item-text">
 			<div class="view-menu-meals-item-container">
-			  <h2 class="view-menu-meals-item-title">${drink.name}</h2>
+			  <h2 class="view-menu-meals-item-title">${product.name}</h2>
 			  <div class="view-menu-meals-item-line"></div>
-			  <p class="view-menu-meals-item-price">$${drink.price}</p>
+			  <p class="view-menu-meals-item-price">$${product.price}</p>
 			</div>
-			<p class="view-menu-meals-item-desc">${drink.description}</p>
+			<p class="view-menu-meals-item-desc">${product.description}</p>
 		  </div>
 		</div>
 		`;
-  if (index < 4) {
-    leftItems += itemHtml;
-  } else {
-    rightItems += itemHtml;
+        if (index < Math.ceil(filteredDrinks.length / 2)) {
+          leftItems += itemHtml;
+        } else {
+          rightItems += itemHtml;
+        }
+      });
+
+      this.leftColumnDrinks.innerHTML = leftItems;
+      this.rightColumnDrinks.innerHTML = rightItems;
+
+      this.renderModal(filteredDrinks);
+      this.addEventListeners();
+    } catch (error) {
+      console.error(`Error rendering drinks:`, error);
+    }
   }
-});
 
-leftColumn.innerHTML = leftItems;
-rightColumn.innerHTML = rightItems;
+  renderModal(drinks) {
+    console.log(`Rendering drinks modal...`);
+    let modalHtml = "";
 
-function renderModal() {
-  let modalHtml = "";
-  drinks.forEach((drinks) => {
-    modalHtml += `
-			  <div class="menu-view-menu-modal-content" data-target="${drinks.name}">
+    drinks.forEach((product) => {
+      if (!product.id) {
+        console.error("Product without id found:", product);
+      } else {
+        modalHtml += `
+         	  <div class="menu-view-menu-modal-content" data-target="${
+              product.name
+            }">
 				<div class="modal-close close-modal" title="Close">
 				  <img
 					class="modal-close close-modal"
@@ -48,67 +93,99 @@ function renderModal() {
 				</div>
 				<div class="menu-view-menu-modal-img">
 				  <img
-					src="${drinks.img}"
-					alt="${drinks.name}"
+					src="${product.img}"
+					alt="${product.name}"
 				  />
 				</div>
 				<div class="menu-view-menu-modal-text">
-				  <h2 class="menu-view-menu-modal-title">${drinks.name}</h2>
+				  <h2 class="menu-view-menu-modal-title">${product.name}</h2>
 				  <p class="menu-view-menu-modal-desc">
-					${drinks.description}
+					${product.description}
 				  </p>
 				  <p class="menu-view-menu-modal-ingridients">
-					<span>Ingredients:</span> ${drinks.ingredients.join(", ")}
+					<span>Ingredients:</span> ${product.ingredients.join(", ")}
 				  </p>
-				  <p class="menu-view-menu-modal-weight"><span>Volume:</span> ${
-            drinks.volume
-          } ml</p>
-				  <p class="menu-view-menu-modal-price">$${drinks.price}</p>
-				  <button class="menu-view-menu-modal-add"><span>Add to favorite</span></button>
+				  <p class="menu-view-menu-modal-weight"><span>Volume:</span> ${product.volume} ml</p>
+				  <p class="menu-view-menu-modal-price">$${product.price}</p>
+				  <button class="menu-view-menu-modal-add-drinks" data-id="${product.id}">
+  					<span>Add to favorite</span>
+				  </button>
+
 				</div>
 			  </div>
-			`;
-  });
-  modalContainer.innerHTML = modalHtml;
-}
+		`;
+      }
+    });
 
-renderModal();
+    this.drinksContainer.innerHTML = modalHtml;
+  }
 
-document.querySelectorAll(".view-menu-meals-item").forEach((product) => {
-  product.onclick = () => {
-    const name = product.getAttribute("data-name");
+  addEventListeners() {
+    console.log(`Adding event listeners for drinks...`);
+
+    this.removeOldEventListeners();
+
     document
-      .querySelectorAll(".menu-view-menu-modal-content")
-      .forEach((content) => {
-        if (content.getAttribute("data-target") === name) {
-          content.style.display = "flex";
-        } else {
-          content.style.display = "none";
-        }
+      .querySelectorAll(`.menu-view-menu-modal-add-drinks`)
+      .forEach((btn) => {
+        btn.addEventListener("click", this.addProductToCart.bind(this));
       });
 
-    modalContainer.style.display = "flex";
-  };
-});
+    document.querySelectorAll(`.view-menu-meals-item`).forEach((product) => {
+      product.onclick = () => {
+        const name = product.getAttribute("data-name");
+        document
+          .querySelectorAll(`.menu-view-menu-modal-content`)
+          .forEach((content) => {
+            if (content.getAttribute("data-target") === name) {
+              content.style.display = "flex";
+            } else {
+              content.style.display = "none";
+            }
+          });
+        this.drinksContainer.style.display = "flex";
+      };
+    });
 
-document.querySelectorAll(".modal-close").forEach((closeButton) => {
-  closeButton.onclick = () => {
-    modalContainer.style.display = "none";
-    document
-      .querySelectorAll(".menu-view-menu-modal-content")
-      .forEach((content) => {
-        content.style.display = "none";
-      });
-  };
-});
+    document.querySelectorAll(`.modal-close`).forEach((closeButton) => {
+      closeButton.onclick = () => {
+        this.drinksContainer.style.display = "none";
+        document
+          .querySelectorAll(`.menu-view-menu-modal-content`)
+          .forEach((content) => {
+            content.style.display = "none";
+          });
+      };
+    });
 
-modalContainer.onclick = (event) => {
-  if (event.target === modalContainer) {
-    modalContainer.style.display = "none";
+    this.drinksContainer.onclick = (event) => {
+      if (event.target === this.drinksContainer) {
+        this.drinksContainer.style.display = "none";
+        document
+          .querySelectorAll(`.menu-view-menu-modal-content`)
+          .forEach((content) => {
+            content.style.display = "none";
+          });
+      }
+    };
+  }
+
+  removeOldEventListeners() {
+    console.log(`Removing old event listeners for drinks...`);
     document
-      .querySelectorAll(".menu-view-menu-modal-content")
-      .forEach((content) => {
-        content.style.display = "none";
+      .querySelectorAll(`.menu-view-menu-modal-add-drinks`)
+      .forEach((btn) => {
+        btn.removeEventListener("click", this.addProductToCart.bind(this));
       });
   }
-};
+
+  addProductToCart(event) {
+    const id = event.currentTarget.dataset.id;
+    console.log("Adding product to cart, ID:", id);
+    const cart = new Cart();
+    cart.addProduct(id);
+  }
+}
+
+new DrinksList();
+localStorage.clear();

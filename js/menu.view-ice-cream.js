@@ -3,11 +3,8 @@ import { ProductsService } from "./products-service.js";
 
 export class ProductList {
   constructor() {
-    console.log("ProductList constructor called");
-
     this.leftColumnIce = document.getElementById("left-column");
     this.rightColumnIce = document.getElementById("right-column");
-
     this.iceCreamContainer = document.querySelector("#modal-container-ice");
 
     if (
@@ -15,74 +12,61 @@ export class ProductList {
       !this.rightColumnIce ||
       !this.iceCreamContainer
     ) {
-      console.error("One or more required DOM elements are missing.");
       return;
     }
 
     this.productsService = new ProductsService();
-
     this.renderProducts("ice-cream");
   }
 
   async renderProducts(type) {
-    console.log(`Rendering ${type} products...`);
     let leftItems = "";
     let rightItems = "";
 
-    try {
-      const products = await this.productsService.getProducts();
-      console.log(`${type} products fetched:`, products);
-
-      const filteredProducts = products.filter(
-        (product) => product.type === type
-      );
-      if (filteredProducts.length === 0) {
-        console.warn(`No ${type} products available.`);
-        return;
-      }
-
-      filteredProducts.forEach((product, index) => {
-        const itemHtml = `
-          <div class="view-menu-meals-item-${type}" data-name="${product.name}">
-            <div class="view-menu-meals-item-img">
-              <img src="${product.img}" alt="${product.name}" />
-            </div>
-            <div class="view-menu-meals-item-text">
-              <div class="view-menu-meals-item-container">
-                <h2 class="view-menu-meals-item-title">${product.name}</h2>
-                <div class="view-menu-meals-item-line"></div>
-                <p class="view-menu-meals-item-price">$${product.price}</p>
-              </div>
-              <p class="view-menu-meals-item-desc">${product.description}</p>
-            </div>
-          </div>
-        `;
-
-        if (index < Math.ceil(filteredProducts.length / 2)) {
-          leftItems += itemHtml;
-        } else {
-          rightItems += itemHtml;
-        }
-      });
-
-      this.leftColumnIce.innerHTML = leftItems;
-      this.rightColumnIce.innerHTML = rightItems;
-
-      this.renderModal(filteredProducts, type, this.iceCreamContainer);
-      this.addEventListeners(type);
-    } catch (error) {
-      console.error(`Error rendering ${type} products:`, error);
+    const products = await this.productsService.getProducts();
+    const filteredProducts = products.filter(
+      (product) => product.type === type
+    );
+    if (filteredProducts.length === 0) {
+      return;
     }
+
+    filteredProducts.forEach((product, index) => {
+      const itemHtml = `
+        <div class="view-menu-meals-item-${type}" data-name="${product.name}">
+          <div class="view-menu-meals-item-img">
+            <img src="${product.img}" alt="${product.name}" />
+          </div>
+          <div class="view-menu-meals-item-text">
+            <div class="view-menu-meals-item-container">
+              <h2 class="view-menu-meals-item-title">${product.name}</h2>
+              <div class="view-menu-meals-item-line"></div>
+              <p class="view-menu-meals-item-price">$${product.price}</p>
+            </div>
+            <p class="view-menu-meals-item-desc">${product.description}</p>
+          </div>
+        </div>
+      `;
+
+      if (index < Math.ceil(filteredProducts.length / 2)) {
+        leftItems += itemHtml;
+      } else {
+        rightItems += itemHtml;
+      }
+    });
+
+    this.leftColumnIce.innerHTML = leftItems;
+    this.rightColumnIce.innerHTML = rightItems;
+
+    this.renderModal(filteredProducts, type, this.iceCreamContainer);
+    this.addEventListeners(type);
   }
 
   async renderModal(products, type, container) {
-    console.log(`Rendering ${type} modal...`);
     let modalHtml = "";
 
     products.forEach((product) => {
-      if (!product.id) {
-        console.error("Product without id found:", product);
-      } else {
+      if (product.id) {
         modalHtml += `
           <div class="menu-view-menu-modal-content-${type}" data-target="${
           product.name
@@ -107,9 +91,9 @@ export class ProductList {
                 product.weight
               } grams</p>
               <p class="menu-view-menu-modal-price">$${product.price}</p>
-              <button class="menu-view-menu-modal-add" data-id="${
-                product.id
-              }"><span>Add to favorite</span></button>
+              <button class="menu-view-menu-modal-add" data-id="${product.id}">
+                <span>Add to favorite</span>
+              </button>
             </div>
           </div>
         `;
@@ -120,8 +104,6 @@ export class ProductList {
   }
 
   addEventListeners(type) {
-    console.log(`Adding event listeners for ${type}...`);
-
     document.querySelectorAll(`.menu-view-menu-modal-add`).forEach((btn) => {
       btn.addEventListener("click", this.addProductToCart.bind(this));
     });
@@ -155,6 +137,17 @@ export class ProductList {
       };
     });
 
+    let addBtn = document.querySelectorAll(`.menu-view-menu-modal-add`);
+    let closeModal = document.querySelectorAll(`.menu-view-menu-modal`);
+
+    addBtn.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        closeModal.forEach((modal) => {
+          modal.style.display = "none";
+        });
+      });
+    });
+
     this.iceCreamContainer.onclick = (event) => {
       if (event.target === this.iceCreamContainer) {
         this.iceCreamContainer.style.display = "none";
@@ -169,11 +162,9 @@ export class ProductList {
 
   addProductToCart(event) {
     const id = event.currentTarget.dataset.id;
-    console.log("Adding product to cart, ID:", id);
     const cart = new Cart();
     cart.addProduct(id);
   }
 }
 
 new ProductList();
-localStorage.clear();

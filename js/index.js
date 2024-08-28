@@ -4,6 +4,7 @@ function init() {
   import("./index.tab-menu.js");
   import("./index.modal-booking.js");
   import("./index.book-table.js");
+  import("./index.info-about-discount.js");
   import("./cart.js");
   import("./menu.view-ice-cream.js");
   import("./menu.view-desserts.js");

@@ -13,181 +13,18 @@
   width: 100%;
   background-color: var(--header-menu);
 }
+.header-contacts {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  background-color: #bc5278;
+}
 .header__background {
   background-image: linear-gradient(#2e2f328c, #1f202299),
     url(../img/index-header-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50.7% 0%;
-}
-.shopping_cart {
-  position: relative;
-  margin-right: 40px;
-}
-.shopping_cart img {
-  width: 35px;
-  position: relative;
-  top: 15px;
-  left: 30px;
-  text-align: left;
-  cursor: pointer;
-}
-.shopping_cart__quantity {
-  background-color: #bd7b97;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--global-text);
-  position: absolute;
-  top: 2px;
-  left: 55px;
-  padding: 1px 8px;
-}
-.shopping_cart-items {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 430px;
-  max-width: 100%;
-  background-color: #bd7b97;
-  height: 100vh;
-  transition: 0.5s;
-  z-index: 1;
-  display: grid;
-  grid-template-rows: 70px 1fr 70px;
-}
-.shopping_cart-title{
-  color: var(--global-text);
-  font-size: 26px;
-  font-family: "Dangrek", cursive;
-  font-weight: 300;
-  line-height: 1.3;
-  margin-top: 75px;
-  text-align: center;  
-}
-.shopping_cart-checkout-total {
-  position: sticky;
-  bottom: 0;
-  padding-left: 60px;
-  color: var(--global-text);
-  font-size: 25px;
-  font-family: "Leckerli One", cursive;
-  font-weight: 400;
-  background-color: #bd7b97;
-  z-index: 2;
-}
-.button-container{
-  display: flex;
-  align-items: center;
-  gap: 30px;  
-  justify-content: center;
-}
-.shopping_cart-checkout-total span{
-  color: var(--global-text);
-  font-weight: 500;
-  font-size: 23px;
-  font-family: "Source Sans 3", sans-serif;
-  margin-left: 5px;
-}
-.shopping_cart-checkout-close,
-.shopping_cart-checkout-btn{
-  border: none;
-  color: var(--global-text);
-  font-weight: 500;
-  font-size: 18px;
-  font-family: "Source Sans 3", sans-serif;
-  border-width: 2px;
-  border-radius: 32px;
-  padding: 15px;
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-.shopping_cart-checkout-close{
-  background-color: #ce3574;
-}
-.shopping_cart-checkout-btn{
-  background-color: #964064;
-}
-.shopping_cart-items-list{
-  overflow: auto;
-  margin-top: 70px;
-}
-.shopping_cart-items-list::-webkit-scrollbar{
-  width: 0;
-}
-.shopping_cart-items{
-  right: -430px;
-  transition: 0.5s;
-}
-body.activeTabCart .shopping_cart-items{
-  right: 0;
-}
-body.activeTabCart .container{
-  transform: translate(-100px);
-}
-.cart-container{
-  margin-bottom: 30px;
-  margin-left: 40px;
-  display: flex;
-  gap: 10px;
-}
-.cart-container-text{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.cart-title{
-  color: var(--global-text);
-  font-size: 20px;
-  font-family: "Dangrek", cursive;
-  font-weight: 400;
-  line-height: 1.3;
-}
-.cart-price{
-  color: rgb(255, 255, 255);
-  font-size: 24px;
-  font-family: "Dangrek", cursive;
-  font-weight: 400;
-  line-height: 1.3;
-}
-.cart-quantity{
-  margin-left: 20px;
-  color: var(--global-secondary-text);
-  font-weight: 500;
-  font-size: 22px;
-  font-family: "Source Sans 3", sans-serif;
-}
-.plus{
-  background-color: white;
-  border-radius: 50%;
-  color: green;
-  border: none;
-  font-size: 14px;
-  padding: 7px 13px;
-}
-.minus{
-  background-color: white;
-  border-radius: 50%;
-  color: red;
-  border: none;
-  font-size: 14px;
-  padding: 7px 13px;
-}
-.cart-container-img img{
-  width: 70px;
-  height: 70px;
-  padding: 10px;
-  object-fit: contain;
-  background-color: #985384;
-  border-radius: 50%;
-  border: 1px solid transparent;
-  transition: border 0.3s;
 }
 .header__nav {
   display: flex;
@@ -291,6 +128,9 @@ body.activeTabCart .container{
 .header-menu.nav-visible .header__nav-menu {
   top: 110px;
 }
+.header-contacts.nav-visible .header__nav-menu {
+  top: 110px;
+}
 .header.nav-visible .header__background,
 .header.nav-visible .header__nav-menu {
   background: var(--global-background);
@@ -299,10 +139,17 @@ body.activeTabCart .container{
 .header-menu.nav-visible .header__nav-menu {
   background: var(--header-menu);
 }
+.header-contacts.nav-visible .header__background,
+.header-contacts.nav-visible .header__nav-menu {
+  background: #bc5278;
+}
 .header.nav-visible .header__navicon {
   background: transparent;
 }
 .header-menu.nav-visible .header__navicon {
+  background: transparent;
+}
+.header-contacts.nav-visible .header__navicon {
   background: transparent;
 }
 .header.nav-visible .header__navicon::before {
@@ -311,10 +158,16 @@ body.activeTabCart .container{
 .header-menu.nav-visible .header__navicon::before {
   transform: rotate(-45deg);
 }
+.header-contacts.nav-visible .header__navicon::before {
+  transform: rotate(-45deg);
+}
 .header.nav-visible .header__navicon::after {
   transform: rotate(45deg);
 }
 .header-menu.nav-visible .header__navicon::after {
+  transform: rotate(45deg);
+}
+.header-contacts.nav-visible .header__navicon::after {
   transform: rotate(45deg);
 }
 .header.nav-visible .header__navicon::before,
@@ -325,9 +178,18 @@ body.activeTabCart .container{
 .header-menu.nav-visible .header__navicon::after {
   top: 0;
 }
+.header-contacts.nav-visible .header__navicon::before,
+.header-contacts.nav-visible .header__navicon::after {
+  top: 0;
+}
 .header__nav-logo {
   width: 129px;
   height: 63px;
+}
+.header__nav-logo img{
+  width: 129px;
+  height: 63px;
+  margin-top: 5px;
 }
 .header.nav-visible {
   background-color: var(--global-background);
@@ -337,10 +199,17 @@ body.activeTabCart .container{
   background-color: var(--header-menu);
   background: var(--header-menu);
 }
+.header-contacts.nav-visible {
+  background-color: #bc5278;
+  background: #bc5278;
+}
 .header.nav-visible .header__nav-menu {
   background: none;
 }
 .header-menu.nav-visible .header__nav-menu {
+  background: none;
+}
+.header-contacts.nav-visible .header__nav-menu {
   background: none;
 }
 .header.nav-visible .header__background,
@@ -351,40 +220,12 @@ body.activeTabCart .container{
 .header-menu.nav-visible .header__nav-menu {
   background: var(--header-menu);
 }
-@media (min-width: 460px) {
-  .shopping_cart {
-    margin-left: 100px;
-  }
+.header-contacts.nav-visible .header__background,
+.header-contacts.nav-visible .header__nav-menu {
+  background: #bc5278;
 }
-@media (min-width: 550px) {
-  .shopping_cart {
-    margin-left: 200px;
-  }
-}
-@media (min-width: 650px) {
-  .shopping_cart {
-    margin-left: 280px;
-  }
-}
-@media (min-width: 740px) {
-  .shopping_cart {
-    margin-left: 380px;
-  }
-}
-@media (min-width: 840px) {
-  .shopping_cart {
-    margin-left: 480px;
-  }
-}
-@media (min-width: 940px) {
-  .shopping_cart {
-    margin-left: 580px;
-  }
-}
+
 @media (min-width: 1110px) {
-  .shopping_cart {
-    margin-left: 0px;
-  }
   .header__nav {
     padding: 45px 45px;
     gap: 8px;

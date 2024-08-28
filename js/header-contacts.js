@@ -1,5 +1,5 @@
 const body = document.querySelector("body");
-const header = document.querySelector(".header");
+const header = document.querySelector(".header-contacts");
 const btnSub = document.querySelector(".header__menu-btn");
 const navLinks = document.querySelector(".header__nav-menu");
 

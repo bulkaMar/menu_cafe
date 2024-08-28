@@ -3,8 +3,6 @@ import { ProductsService } from "./products-service.js";
 
 export class DrinksList {
   constructor() {
-    console.log("DrinkList constructor called");
-
     this.drinksContainer = document.querySelector("#modal-container-dr");
     this.leftColumnDrinks = document.getElementById("left-column-dr");
     this.rightColumnDrinks = document.getElementById("right-column-dr");
@@ -23,24 +21,20 @@ export class DrinksList {
   }
 
   async renderDrinks() {
-    console.log(`Rendering drinks...`);
     let leftItems = "";
     let rightItems = "";
 
-    try {
-      const products = await this.productsService.getProducts();
-      console.log(`Drinks products fetched:`, products);
+    const products = await this.productsService.getProducts();
+    const filteredDrinks = products.filter(
+      (product) => product.type === "drinks"
+    );
+    if (filteredDrinks.length === 0) {
+      console.warn(`No drinks available.`);
+      return;
+    }
 
-      const filteredDrinks = products.filter(
-        (product) => product.type === "drinks"
-      );
-      if (filteredDrinks.length === 0) {
-        console.warn(`No drinks available.`);
-        return;
-      }
-
-      filteredDrinks.forEach((product, index) => {
-        const itemHtml = `
+    filteredDrinks.forEach((product, index) => {
+      const itemHtml = `
 		<div class="view-menu-meals-item" data-name="${product.name}">
 		  <div class="view-menu-meals-item-img">
 			<img src="${product.img}" alt="${product.name}" />
@@ -55,25 +49,21 @@ export class DrinksList {
 		  </div>
 		</div>
 		`;
-        if (index < Math.ceil(filteredDrinks.length / 2)) {
-          leftItems += itemHtml;
-        } else {
-          rightItems += itemHtml;
-        }
-      });
+      if (index < Math.ceil(filteredDrinks.length / 2)) {
+        leftItems += itemHtml;
+      } else {
+        rightItems += itemHtml;
+      }
+    });
 
-      this.leftColumnDrinks.innerHTML = leftItems;
-      this.rightColumnDrinks.innerHTML = rightItems;
+    this.leftColumnDrinks.innerHTML = leftItems;
+    this.rightColumnDrinks.innerHTML = rightItems;
 
-      this.renderModal(filteredDrinks);
-      this.addEventListeners();
-    } catch (error) {
-      console.error(`Error rendering drinks:`, error);
-    }
+    this.renderModal(filteredDrinks);
+    this.addEventListeners();
   }
 
   renderModal(drinks) {
-    console.log(`Rendering drinks modal...`);
     let modalHtml = "";
 
     drinks.forEach((product) => {
@@ -105,7 +95,9 @@ export class DrinksList {
 				  <p class="menu-view-menu-modal-ingridients">
 					<span>Ingredients:</span> ${product.ingredients.join(", ")}
 				  </p>
-				  <p class="menu-view-menu-modal-weight"><span>Volume:</span> ${product.volume} ml</p>
+				  <p class="menu-view-menu-modal-weight"><span>Volume:</span> ${
+            product.volume
+          } ml</p>
 				  <p class="menu-view-menu-modal-price">$${product.price}</p>
 				  <button class="menu-view-menu-modal-add-drinks" data-id="${product.id}">
   					<span>Add to favorite</span>
@@ -121,8 +113,6 @@ export class DrinksList {
   }
 
   addEventListeners() {
-    console.log(`Adding event listeners for drinks...`);
-
     this.removeOldEventListeners();
 
     document
@@ -146,7 +136,16 @@ export class DrinksList {
         this.drinksContainer.style.display = "flex";
       };
     });
+    let addBtn = document.querySelectorAll(`.menu-view-menu-modal-add-drinks`);
+    let closeModal = document.querySelectorAll(`.menu-view-menu-modal`);
 
+    addBtn.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        closeModal.forEach((modal) => {
+          modal.style.display = "none";
+        });
+      });
+    });
     document.querySelectorAll(`.modal-close`).forEach((closeButton) => {
       closeButton.onclick = () => {
         this.drinksContainer.style.display = "none";
@@ -171,7 +170,6 @@ export class DrinksList {
   }
 
   removeOldEventListeners() {
-    console.log(`Removing old event listeners for drinks...`);
     document
       .querySelectorAll(`.menu-view-menu-modal-add-drinks`)
       .forEach((btn) => {
@@ -181,11 +179,9 @@ export class DrinksList {
 
   addProductToCart(event) {
     const id = event.currentTarget.dataset.id;
-    console.log("Adding product to cart, ID:", id);
     const cart = new Cart();
     cart.addProduct(id);
   }
 }
 
 new DrinksList();
-localStorage.clear();

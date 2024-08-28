@@ -3,8 +3,6 @@ import { ProductsService } from "./products-service.js";
 
 export class DessertList {
   constructor() {
-    console.log("DessertList constructor called");
-
     this.dessertsContainer = document.querySelector(
       "#modal-container-desserts"
     );
@@ -16,7 +14,6 @@ export class DessertList {
       !this.leftColumnDesserts ||
       !this.rightColumnDesserts
     ) {
-      console.error("Desserts DOM elements are missing.");
       return;
     }
 
@@ -25,63 +22,52 @@ export class DessertList {
   }
 
   async renderDesserts() {
-    console.log(`Rendering desserts...`);
     let leftItems = "";
     let rightItems = "";
 
-    try {
-      const products = await this.productsService.getProducts();
-      console.log(`Desserts products fetched:`, products);
-
-      const filteredDesserts = products.filter(
-        (product) => product.type === "desserts"
-      );
-      if (filteredDesserts.length === 0) {
-        console.warn(`No desserts available.`);
-        return;
-      }
-
-      filteredDesserts.forEach((product, index) => {
-        const itemHtml = `
-          <div class="view-menu-meals-item-desserts" data-name="${product.name}">
-            <div class="view-menu-meals-item-img">
-              <img src="${product.img}" alt="${product.name}" />
-            </div>
-            <div class="view-menu-meals-item-text">
-              <div class="view-menu-meals-item-container">
-                <h2 class="view-menu-meals-item-title">${product.name}</h2>
-                <div class="view-menu-meals-item-line"></div>
-                <p class="view-menu-meals-item-price">$${product.price}</p>
-              </div>
-              <p class="view-menu-meals-item-desc">${product.description}</p>
-            </div>
-          </div>
-        `;
-        if (index < Math.ceil(filteredDesserts.length / 2)) {
-          leftItems += itemHtml;
-        } else {
-          rightItems += itemHtml;
-        }
-      });
-
-      this.leftColumnDesserts.innerHTML = leftItems;
-      this.rightColumnDesserts.innerHTML = rightItems;
-
-      this.renderModal(filteredDesserts);
-      this.addEventListeners();
-    } catch (error) {
-      console.error(`Error rendering desserts:`, error);
+    const products = await this.productsService.getProducts();
+    const filteredDesserts = products.filter(
+      (product) => product.type === "desserts"
+    );
+    if (filteredDesserts.length === 0) {
+      return;
     }
+
+    filteredDesserts.forEach((product, index) => {
+      const itemHtml = `
+        <div class="view-menu-meals-item-desserts" data-name="${product.name}">
+          <div class="view-menu-meals-item-img">
+            <img src="${product.img}" alt="${product.name}" />
+          </div>
+          <div class="view-menu-meals-item-text">
+            <div class="view-menu-meals-item-container">
+              <h2 class="view-menu-meals-item-title">${product.name}</h2>
+              <div class="view-menu-meals-item-line"></div>
+              <p class="view-menu-meals-item-price">$${product.price}</p>
+            </div>
+            <p class="view-menu-meals-item-desc">${product.description}</p>
+          </div>
+        </div>
+      `;
+      if (index < Math.ceil(filteredDesserts.length / 2)) {
+        leftItems += itemHtml;
+      } else {
+        rightItems += itemHtml;
+      }
+    });
+
+    this.leftColumnDesserts.innerHTML = leftItems;
+    this.rightColumnDesserts.innerHTML = rightItems;
+
+    this.renderModal(filteredDesserts);
+    this.addEventListeners();
   }
 
   async renderModal(desserts) {
-    console.log(`Rendering desserts modal...`);
     let modalHtml = "";
 
     desserts.forEach((product) => {
-      if (!product.id) {
-        console.error("Product without id found:", product);
-      } else {
+      if (product.id) {
         modalHtml += `
           <div class="menu-view-menu-modal-content-desserts" data-target="${
             product.name
@@ -119,8 +105,6 @@ export class DessertList {
   }
 
   addEventListeners() {
-    console.log(`Adding event listeners for desserts...`);
-
     this.removeOldEventListeners();
 
     document
@@ -159,10 +143,11 @@ export class DessertList {
             });
         };
       });
+
     let addBtn = document.querySelectorAll(
       `.menu-view-menu-modal-add-desserts`
     );
-    let closeModal =  document.querySelectorAll(`.menu-view-menu-modal-content-desserts`);
+    let closeModal = document.querySelectorAll(`.menu-view-menu-modal`);
 
     addBtn.forEach((btn) => {
       btn.addEventListener("click", function () {
@@ -185,7 +170,6 @@ export class DessertList {
   }
 
   removeOldEventListeners() {
-    console.log(`Removing old event listeners for desserts...`);
     document.querySelectorAll(`.menu-view-menu-modal-add`).forEach((btn) => {
       btn.removeEventListener("click", this.addProductToCart.bind(this));
     });
@@ -193,11 +177,9 @@ export class DessertList {
 
   addProductToCart(event) {
     const id = event.currentTarget.dataset.id;
-    console.log("Adding product to cart, ID:", id);
     const cart = new Cart();
     cart.addProduct(id);
   }
 }
 
 new DessertList();
-localStorage.clear();

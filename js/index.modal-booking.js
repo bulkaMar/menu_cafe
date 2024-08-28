@@ -64,4 +64,3 @@ const closeModal = () => {
 
 const closeBtns = document.querySelectorAll(".close-modal");
 closeBtns.forEach((c) => c.addEventListener("click", closeModal));
-

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurant</title>
+    <title>Restaruant</title>
     <link
       rel="shortcut icon"
       href="img/page/page-icon.png"
@@ -15,36 +15,33 @@
       integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./css/menu.css" />
+    <link rel="stylesheet" href="./css/contacts.css" />
   </head>
   <body>
-    <header class="header-menu">
-      <nav
+    <header class="header-contacts">
+      <div>
+        <nav
+          data-hx-trigger="load"
+          data-hx-swap="outerHTML"
+          data-hx-get="global.header-nav.partial.html"
+        ></nav>
+      </div>
+      <section
         data-hx-trigger="load"
         data-hx-swap="outerHTML"
-        data-hx-get="global.header-nav.partial.html"
-      ></nav>
+        data-hx-get="contacts.header-hero.partial.html"
+      ></section>
     </header>
     <main>
       <section
         data-hx-trigger="load"
         data-hx-swap="outerHTML"
-        data-hx-get="menu.header-hero.partial.html"
+        data-hx-get="contacts.info.html"
       ></section>
       <section
         data-hx-trigger="load"
         data-hx-swap="outerHTML"
-        data-hx-get="menu.ice-cream-view-menu.html"
-      ></section>
-      <section
-        data-hx-trigger="load"
-        data-hx-swap="outerHTML"
-        data-hx-get="menu.desserts-view-menu.html"
-      ></section>
-      <section
-        data-hx-trigger="load"
-        data-hx-swap="outerHTML"
-        data-hx-get="menu.drinks-view-menu.html"
+        data-hx-get="contacts.questions.html"
       ></section>
     </main>
     <footer>
@@ -54,6 +51,6 @@
         data-hx-get="global.footer.partial.html"
       ></div>
     </footer>
-    <script type="module" src="js/menu.js"></script>
+    <script src="js/contacts.js"></script>
   </body>
 </html>

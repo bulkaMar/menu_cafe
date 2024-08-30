@@ -1,0 +1,64 @@
+.contacts-info {
+  padding: 50px 24px;
+  background-color: #b8738f;
+}
+.contacts-info-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.info-items-img img {
+  padding: 12px;
+  border-radius: 50%;
+  background-color: #b95c7e96;
+  width: 70px;
+  height: 70px;
+}
+.contacts-info-content-item,
+.contacts-info-content-item-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.contacts-info-content-item-title {
+  margin-top: 15px;
+  color: var(--global-text);
+  font-size: 24px;
+  font-family: "Dangrek", cursive;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.3;
+  text-align: center;
+}
+.info-items-text {
+  color: var(--global-text);
+  font-weight: 400;
+  font-size: 18px;
+  font-family: "Source Sans 3", sans-serif;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+@media (min-width: 850px) {
+  .contacts-info-content {
+    flex-direction: row;
+    gap: 10px;
+  }
+  .contacts-info-content-item,
+  .contacts-info-content-item-phone {
+    align-items: flex-start;
+    flex: 23%;
+    max-width: 25%;
+  }
+  .contacts-info-content-item-phone {
+    padding-left: 40px;
+  }
+  .contacts-info-content-item-title {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  .info-items-text {
+    text-align: left;
+  }
+}

@@ -4,6 +4,7 @@ function init() {
 	import("./menu.view-ice-cream.js");
 	import("./menu.view-desserts.js");
 	import("./menu.view-drinks.js");
+	import("./contacts.accordion.js");
   }
   
   const totalPartials = document.querySelectorAll(
